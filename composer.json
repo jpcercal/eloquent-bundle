@@ -1,0 +1,40 @@
+{
+    "name": "cekurte/eloquentbundle",
+    "description": "A bundle to integrate the Eloquent library on Symfony 2",
+    "keywords": ["eloquent","database"],
+    "homepage": "https://github.com/jpcercal/cekurteeloquentbundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "João Paulo Cercal",
+            "email": "jpcercal@gmail.com",
+            "homepage": "http://sistemas.cekurte.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "illuminate/database": "~5.0",
+        "symfony/framework-bundle": "~2.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5",
+        "fabpot/php-cs-fixer": "*"
+    },
+    "autoload": {
+        "psr-4": {"Cekurte\\EloquentBundle\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": {"Cekurte\\EloquentBundle\\Tests\\": "tests/"}
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "bash contrib/setup.sh"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    }
+}
