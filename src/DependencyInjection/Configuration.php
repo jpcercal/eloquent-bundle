@@ -31,8 +31,10 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('cekurte_eloquent');
 
         $rootNode
+            ->isRequired()
             ->children()
                 ->arrayNode('connection')
+                    ->isRequired()
                     ->children()
                         ->scalarNode('driver')
                             ->cannotBeEmpty()
