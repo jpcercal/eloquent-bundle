@@ -4,7 +4,25 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--<parameters></parameters>-->
+    <parameters>
+        <parameter key="cekurte_eloquent.capsule.class">Illuminate\Database\Capsule\Manager</parameter>
+        <parameter key="cekurte_eloquent.connection" type="collection">
+            <parameter key="driver">%database_driver%</parameter>
+            <parameter key="host">%database_host%</parameter>
+            <parameter key="database">%database_name%</parameter>
+            <parameter key="username">%database_user%</parameter>
+            <parameter key="password">%database_password%</parameter>
+            <parameter key="collation">%database_collation%</parameter>
+            <parameter key="charset">%database_charset%</parameter>
+            <parameter key="prefix">%database_prefix%</parameter>
+        </parameter>
+    </parameters>
 
-    <!--<services></services>-->
+    <services>
+        <service id="cekurte_eloquent.capsule" class="%cekurte_eloquent.capsule.class%">
+            <call method="addConnection">
+                <argument>%cekurte_eloquent.connection%</argument>
+            </call>
+        </service>
+    </services>
 </container>
