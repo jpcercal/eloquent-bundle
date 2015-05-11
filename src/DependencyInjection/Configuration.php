@@ -28,11 +28,51 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
 
-        $treeBuilder->root('cekurte_eloquent');
+        $rootNode = $treeBuilder->root('cekurte_eloquent');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+                ->arrayNode('connection')
+                    ->children()
+                        ->scalarNode('driver')
+                            ->cannotBeEmpty()
+                            ->defaultValue('mysql')
+                            ->validate()
+                            ->ifNotInArray(array('mysql', 'postgres', 'sqlserver', 'sqlite'))
+                                ->thenInvalid('Invalid database driver "%s"')
+                            ->end()
+                        ->end()
+                        ->scalarNode('host')
+                            ->isRequired()
+                            ->cannotBeEmpty()
+                        ->end()
+                        ->scalarNode('database')
+                            ->isRequired()
+                            ->cannotBeEmpty()
+                        ->end()
+                        ->scalarNode('username')
+                            ->isRequired()
+                            ->cannotBeEmpty()
+                        ->end()
+                        ->scalarNode('password')
+                            ->defaultValue('')
+                        ->end()
+                        ->scalarNode('collation')
+                            ->cannotBeEmpty()
+                            ->defaultValue('utf8_unicode_ci')
+                        ->end()
+                        ->scalarNode('charset')
+                            ->cannotBeEmpty()
+                            ->defaultValue('utf8')
+                        ->end()
+                        ->scalarNode('prefix')
+                            ->cannotBeEmpty()
+                            ->defaultValue('')
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
 
         return $treeBuilder;
     }
