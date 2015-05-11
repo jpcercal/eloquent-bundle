@@ -5,16 +5,17 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
+        <parameter key="cekurte_eloquent.event_listener.boot_subscriber.class">Cekurte\EloquentBundle\EventListener\BootSubscriber</parameter>
         <parameter key="cekurte_eloquent.capsule.class">Illuminate\Database\Capsule\Manager</parameter>
         <parameter key="cekurte_eloquent.connection" type="collection">
-            <parameter key="driver">%database_driver%</parameter>
-            <parameter key="host">%database_host%</parameter>
-            <parameter key="database">%database_name%</parameter>
-            <parameter key="username">%database_user%</parameter>
-            <parameter key="password">%database_password%</parameter>
-            <parameter key="collation">%database_collation%</parameter>
-            <parameter key="charset">%database_charset%</parameter>
-            <parameter key="prefix">%database_prefix%</parameter>
+            <parameter key="driver">%cekurte_eloquent.connection.driver%</parameter>
+            <parameter key="host">%cekurte_eloquent.connection.host%</parameter>
+            <parameter key="database">%cekurte_eloquent.connection.database%</parameter>
+            <parameter key="username">%cekurte_eloquent.connection.username%</parameter>
+            <parameter key="password">%cekurte_eloquent.connection.password%</parameter>
+            <parameter key="collation">%cekurte_eloquent.connection.collation%</parameter>
+            <parameter key="charset">%cekurte_eloquent.connection.charset%</parameter>
+            <parameter key="prefix">%cekurte_eloquent.connection.prefix%</parameter>
         </parameter>
     </parameters>
 
@@ -23,6 +24,10 @@
             <call method="addConnection">
                 <argument>%cekurte_eloquent.connection%</argument>
             </call>
+        </service>
+        <service id="cekurte_eloquent.event_listener.boot_subscriber" class="%cekurte_eloquent.event_listener.boot_subscriber.class%">
+            <tag name="kernel.event_subscriber" />
+            <argument type="service" id="cekurte_eloquent.capsule" />
         </service>
     </services>
 </container>
