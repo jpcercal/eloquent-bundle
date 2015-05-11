@@ -31,6 +31,10 @@ class CekurteEloquentExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        foreach ($config['connection'] as $key => $value) {
+            $container->setParameter(sprintf('cekurte_eloquent.connection.%s', $key), $value);
+        }
+
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
     }
