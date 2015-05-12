@@ -20,3 +20,46 @@ Autoloading is [PSR-4](https://github.com/php-fig/fig-standards/blob/master/acce
 ```shell
 composer require cekurte/eloquentbundle
 ```
+
+After, register the bundle in your AppKernel like this:
+
+```php
+// app/AppKernel.php
+
+// ...
+public function registerBundles()
+{
+    $bundles = array(
+        // ...
+        new Cekurte\EloquentBundle\CekurteEloquentBundle(),
+        // ...
+    );
+
+    // ...
+    return $bundles;
+}
+```
+
+## Configuration
+
+All reference to configure this bundle is bellow, add this in your config file.
+
+```yml
+# app/config/config.yml
+
+# ...
+cekurte_eloquent:
+    connection:
+        driver:     "mysql"           # Default is mysql. Available too: postgres, sqlserver and sqlite.
+        host:       "127.0.0.1"       # Required
+        database:   "dbname"          # Required
+        username:   "user"            # Required
+        password:   "pass"            # Optional, default is ""
+        charset:    "utf8"            # Optional, default is "utf8"
+        collation:  "utf8_unicode_ci" # Optional, default is "utf8_unicode_ci"
+        prefix:     ""                # Optional, default is ""
+```
+
+## How to use
+
+See the [documentation of the Eloquent ORM](http://laravel.com/docs/5.0/eloquent).
