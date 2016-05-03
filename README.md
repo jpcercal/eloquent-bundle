@@ -1,21 +1,21 @@
 # Cekurte\EloquentBundle
 
-[![Build Status](https://img.shields.io/travis/jpcercal/CekurteEloquentBundle/master.svg?style=flat-square)](http://travis-ci.org/jpcercal/CekurteEloquentBundle)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jpcercal/CekurteEloquentBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/jpcercal/CekurteEloquentBundle/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/jpcercal/CekurteEloquentBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/jpcercal/CekurteEloquentBundle/?branch=master)
-[![Latest Stable Version](https://img.shields.io/packagist/v/cekurte/eloquentbundle.svg?style=flat-square)](https://packagist.org/packages/cekurte/eloquentbundle)
-[![Total Downloads](https://img.shields.io/packagist/dt/cekurte/eloquentbundle.svg?style=flat-square)](https://packagist.org/packages/cekurte/eloquentbundle)
-[![License](https://img.shields.io/packagist/l/cekurte/eloquentbundle.svg?style=flat-square)](https://packagist.org/packages/cekurte/eloquentbundle)
+[![Build Status](https://img.shields.io/travis/jpcercal/eloquent-bundle/master.svg?style=square)](http://travis-ci.org/jpcercal/eloquent-bundle)
+[![Code Climate](https://codeclimate.com/github/jpcercal/eloquent-bundle/badges/gpa.svg)](https://codeclimate.com/github/jpcercal/eloquent-bundle)
+[![Coverage Status](https://coveralls.io/repos/github/jpcercal/eloquent-bundle/badge.svg?branch=master)](https://coveralls.io/github/jpcercal/eloquent-bundle?branch=master)
+[![Latest Stable Version](https://img.shields.io/packagist/v/cekurte/eloquentbundle.svg?style=square)](https://packagist.org/packages/cekurte/eloquentbundle)
+[![License](https://img.shields.io/packagist/l/cekurte/eloquentbundle.svg?style=square)](https://packagist.org/packages/cekurte/eloquentbundle)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/26e42923-9ae6-4572-910f-18566acca2e1/mini.png)](https://insight.sensiolabs.com/projects/26e42923-9ae6-4572-910f-18566acca2e1)
 
-- See also the [CekurteGeneratorBundle](https://github.com/jpcercal/CekurteGeneratorBundle) to build CRUD's automatically 
-with custom templates.
-- See also the [CekurteComponentBundle](https://github.com/jpcercal/CekurteComponentBundle) to manage resources.
+- A simple bridge to use the Eloquent ORM with Symfony 2 (with all methods covered by php unit tests), **contribute with this project**!
+
+**If you liked of this library, give me a *star =)*.**
 
 ## Installation
 
-The package is available on [Packagist](http://packagist.org/packages/cekurte/eloquentbundle).
-Autoloading is [PSR-4](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md) compatible.
+- The package is available on [Packagist](http://packagist.org/packages/cekurte/eloquentbundle).
+- The source files is [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) compatible.
+- Autoloading is [PSR-4](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md) compatible.
 
 ```shell
 composer require cekurte/eloquentbundle
@@ -63,3 +63,15 @@ cekurte_eloquent:
 ## How to use
 
 See the [documentation of the Eloquent ORM](http://laravel.com/docs/5.0/eloquent).
+
+Contributing
+------------
+
+1. Give me a star **=)**
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Make your changes
+4. Run the tests, adding new ones for your own code if necessary (`vendor/bin/phpunit`)
+5. Commit your changes (`git commit -am 'Added some feature'`)
+6. Push to the branch (`git push origin my-new-feature`)
+7. Create new Pull Request
